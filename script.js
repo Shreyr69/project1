@@ -5,7 +5,7 @@ async function fetchProducts() {
 
         const container = document.getElementById("products");
 
-        data.products.slice(0, 8).forEach(product => {
+        data.products.forEach(product => {
             const card = document.createElement("div");
             card.className = "product-card";
 
