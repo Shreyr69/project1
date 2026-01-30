@@ -17,7 +17,13 @@ async function fetchProducts() {
             `;
 
             container.appendChild(card);
-        });
+
+            card.addEventListener("click", () => {
+                console.log("Card Clicked:", product.id);
+
+                window.location.href = `product.html?id=${product.id}`;
+            });
+        })
 
     } catch (error) {
         console.log("Error fetching products:", error);
@@ -55,6 +61,12 @@ async function searchProducts() {
             `;
 
             container.appendChild(card);
+
+            card.addEventListener("click", () => {
+                console.log("Card Clicked:", product.id);
+
+                window.location.href = `product.html?id=${product.id}`;
+            });
         });
 
         let history = JSON.parse(localStorage.getItem("searchHistory")) || [];

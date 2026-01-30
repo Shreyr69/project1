@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Details</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 40px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            text-decoration: none;
+            background-color: #007bff;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+        }
+
+        .back-link:hover {
+            background-color: #0056b3;
+        }
+
+        .product-wrapper {
+            display: flex;
+            justify-content: center;
+        }
+
+        .product-card {
+            display: flex;
+            gap: 40px;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        .product-image img {
+            width: 350px;
+            height: 350px;
+            object-fit: contain;
+        }
+
+        .product-details {
+            flex: 1;
+        }
+
+        .brand {
+            font-size: 14px;
+            color: gray;
+        }
+
+        .title {
+            font-size: 28px;
+            margin: 5px 0 15px;
+        }
+
+        .price {
+            font-size: 22px;
+            color: green;
+            font-weight: bold;
+        }
+
+        .discount {
+            color: red;
+            font-weight: bold;
+        }
+
+        .section {
+            margin-top: 10px;
+        }
+
+        .info-grid {
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px 20px;
+        }
+
+        .info-grid div {
+            background: #f9f9f9;
+            padding: 8px;
+            border-radius: 5px;
+        }
+
+        .rating {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <a href="index.html" class="back-link">← Back to Products</a>
+
+    <div class="product-wrapper">
+        <div class="product-card">
+
+            <!-- Image Section -->
+            <div class="product-image">
+                <img id="productImage" src="" alt="Product Image">
+            </div>
+
+            <!-- Details Section -->
+            <div class="product-details">
+
+                <div class="brand" id="brand"></div>
+                <div class="title" id="title"></div>
+
+                <p id="description"></p>
+
+                <div class="price" id="price"></div>
+                <div class="discount" id="discount"></div>
+
+                <div class="section">
+                    <strong>Status:</strong> 
+                    <span id="availability"></span>
+                </div>
+
+                <div class="rating" id="rating"></div>
+
+                <div class="section">
+                    <strong>Shipping:</strong> 
+                    <span id="shipping"></span>
+                </div>
+
+                <div class="info-grid">
+                    <div id="sku"></div>
+                    <div id="categoryValue">Category: <span id="category"></span></div>
+                    <div id="weightValue">Weight: <span id="weight"></span></div>
+                    <div>Warranty: <span id="warranty"></span></div>
+                    <div>Returnable: <span id="returnable"></span></div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <script src="product.js"></script>
+
+</body>
+</html>
