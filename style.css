@@ -60,7 +60,6 @@ h1 {
 
 #searchInput{
     padding: 10px;
-    margin-bottom: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
@@ -76,4 +75,13 @@ h1 {
 
 #searchbtn:hover {
     background-color: #0056b3;
+}
+
+
+#suggestions{
+    margin-bottom: 10px;
+    background-color: lightblue;
+    padding: 10px;
+    border-radius: 5px;
+    width: 165px;
 }
