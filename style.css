@@ -85,3 +85,40 @@ h1 {
     border-radius: 5px;
     width: 165px;
 }
+
+.pagination {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.pagination button {
+    padding: 8px 18px;
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+    border-radius: 6px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.pagination button:hover:not(:disabled) {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.pagination button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+#pageInfo {
+    font-weight: 600;
+    font-size: 15px;
+    color: #333;
+}
