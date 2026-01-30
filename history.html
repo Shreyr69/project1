@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search History</title>
+    <style>
+        body { font-family: sans-serif; background-color: #f4f4f9; padding: 20px; }
+.container { max-width: 600px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+h1 { text-align: center; color: #333; }
+table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
+th { background-color: #007bff; color: white; }
+tr:hover { background-color: #f1f1f1; }
+#clear-btn { display: block; width: 100%; padding: 10px; margin-top: 20px; background: #dc3545; color: white; border: none; cursor: pointer; border-radius: 4px; }
+#clear-btn:hover { background: #c82333; }
+
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <h1>Search History Log</h1>
+        <table id="history-table">
+            <thead>
+                <tr>
+                    <th>Search Term</th>
+                    <th>Date & Time</th>
+                </tr>
+            </thead>
+            <tbody id="history-body">
+            </tbody>
+        </table>
+        <button id="clear-btn">Clear All History</button>
+    </div>
+    <script>
+        const historyBody = document.getElementById('history-body');
+const clearBtn = document.getElementById('clear-btn');
+
+function loadHistory() {
+    const searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
+    
+    historyBody.innerHTML = '';
+
+    searchHistory.forEach(item => {
+        const row = document.createElement('tr');
+        
+        const dateStr = new Date(item.time).toLocaleString();
+
+        row.innerHTML = `
+            <td><strong>${item.query}</strong></td>
+            <td>${dateStr}</td>
+        `;
+        historyBody.appendChild(row);
+    });
+
+    if (searchHistory.length === 0) {
+        historyBody.innerHTML = '<tr><td colspan="2" style="text-align:center;">No history found.</td></tr>';
+    }
+}
+
+clearBtn.addEventListener('click', () => {
+    localStorage.removeItem('searchHistory');
+    loadHistory();
+});
+
+loadHistory();
+
+    </script>
+</body>
+</html>
