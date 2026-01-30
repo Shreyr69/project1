@@ -24,6 +24,21 @@ fetch(`https://dummyjson.com/products/${productId}`)
         document.getElementById("shipping").innerText = product.shipping ? "Free Shipping" : "Shipping Charges Apply";
 
 
+        let viewedHistory = JSON.parse(localStorage.getItem("viewHistory")) || [];
+
+        const alreadyViewed = viewedHistory.some(item => item.id === product.id);
+
+        if (!alreadyViewed) {
+            viewedHistory.push({
+                id: product.id,
+                title: product.title,
+                time: Date.now()
+            });
+
+            localStorage.setItem("viewHistory", JSON.stringify(viewedHistory));
+        }
+
+
     })
     .catch(error => {
         console.log("Error fetching product details:", error);
